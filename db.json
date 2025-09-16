@@ -1,0 +1,83 @@
+{
+  "schools": [
+    {
+      "id": "2",
+      "name": "Colégio Estadual Norte",
+      "director": "João Carlos Oliveira",
+      "address": "Av. Principal, 456 - Bairro Norte",
+      "phone": "(11) 2345-6789",
+      "email": "secretaria@colegionorte.edu.br",
+      "students": 250,
+      "classesCount": 12
+    },
+    {
+      "id": "3",
+      "name": "Escola Rural Sul",
+      "director": "Ana Beatriz Costa",
+      "address": "Estrada Rural, km 15 - Zona Sul",
+      "phone": "(11) 3456-7890",
+      "email": "escola@ruralsul.edu.br",
+      "students": 95,
+      "classesCount": 5
+    },
+    {
+      "id": 0,
+      "name": "Escola Oi",
+      "director": "Maria Silva Santo",
+      "address": "Rua Guarapari",
+      "phone": "(11) 1234-5678",
+      "email": "teste@gmail.com",
+      "students": 100,
+      "classesCount": 20
+    }
+  ],
+  "classes": [
+    {
+      "id": "1",
+      "name": "3º Ano A",
+      "grade": "3º Ano",
+      "year": 2024,
+      "teacher": "Maria Fernanda",
+      "room": "101",
+      "schedule": "08:00 - 12:00",
+      "students": 25,
+      "schoolId": 1,
+      "schoolName": "Escola Municipal Centro"
+    },
+    {
+      "id": "2",
+      "name": "2º Ano B",
+      "grade": "2º Ano",
+      "year": 2024,
+      "teacher": "Carlos Eduardo",
+      "room": "205",
+      "schedule": "13:00 - 17:00",
+      "students": 22,
+      "schoolId": 1,
+      "schoolName": "Escola Municipal Centro"
+    },
+    {
+      "id": "4",
+      "name": "4º Ano Único",
+      "grade": "4º Ano",
+      "year": 2024,
+      "teacher": "João Santos",
+      "room": "301",
+      "schedule": "08:00 - 12:00",
+      "students": 18,
+      "schoolId": 3,
+      "schoolName": "Escola Rural Sul"
+    },
+    {
+      "id": 0,
+      "name": "1º Ano C",
+      "grade": "1º Ano",
+      "year": 2024,
+      "teacher": "Ana Paula",
+      "room": "100",
+      "schedule": "08:00 - 12:00",
+      "students": "20",
+      "schoolId": "2"
+    }
+  ]
+}

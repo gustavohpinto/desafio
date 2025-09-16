@@ -1,0 +1,64 @@
+<div class="page-header">
+  <div>
+    <h2>Turmas</h2>
+    <p>Gerencie as turmas por escola</p>
+  </div>
+  <button class="btn-primary" (click)="openClassModal()">+ Nova Turma</button>
+</div>
+
+<div class="filters">
+  <input type="text" placeholder="Buscar turmas..." [(ngModel)]="searchTerm" />
+  <select [(ngModel)]="selectedSchoolId">
+    <option value="">Todas as escolas</option>
+    @for (school of (schools$ | async) || []; track school.id) {
+      <option [value]="school.id">{{ school.name }}</option>
+    }
+  </select>
+</div>
+
+<!-- Agrupando as turmas por escola -->
+@for (group of groupBySchool(filteredClasses((classes$ | async) || [])); track group.schoolId) {
+  <div class="school-section">
+    <h3 class="school-title">{{ group.schoolName }}</h3>
+
+    <div class="card-grid">
+      @for (cls of group.classes; track cls.id) {
+        <div class="class-card">
+          <div class="card-header">
+            <h3>{{ cls.name }}</h3>
+            <div class="actions">
+              <button class="edit" (click)="openClassModal(cls)">
+                <i class="fa fa-pen"></i>
+              </button>
+              <button class="delete" (click)="deleteClass(cls.id)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </div>
+          </div>
+
+          <p class="subtitle">{{ cls.grade }} - {{ cls.year }}</p>
+          <p><i class="fa fa-user"></i> Prof. {{ cls.teacher }}</p>
+          <p><i class="fa fa-door-open"></i> Sala {{ cls.room }}</p>
+          <p><i class="fa fa-clock"></i> {{ cls.schedule }}</p>
+
+          <hr />
+
+          <div class="stats">
+            <i class="fa fa-users"></i>
+            <span>Alunos matriculados</span>
+            <strong>{{ cls.students }} alunos</strong>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+}
+
+@if (isModalOpen) {
+  <school-class-modal
+    [classData]="localClass"
+    [isEdit]="isEdit"
+    (onSave)="saveClass($event)"
+    (onClose)="closeModal()">
+  </school-class-modal>
+}

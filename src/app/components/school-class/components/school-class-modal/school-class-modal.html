@@ -1,0 +1,43 @@
+<div class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>{{ isEdit ? 'Editar Turma' : 'Nova Turma' }}</h3>
+            <button (click)="close()">✕</button>
+        </div>
+
+        <form (ngSubmit)="save()">
+            <label for="name">Nome da turma</label>
+            <input type="text" [(ngModel)]="localClass.name" name="name" placeholder="Nome da Turma" required />
+
+            <label for="school">Escola</label>
+            <select id="school" name="schoolId" [(ngModel)]="localClass.schoolId" required>
+                @for (school of schools; track school.id) {
+                    <option [value]="school.id">{{ school.name }}</option>
+                }
+            </select>
+
+            <label for="teacher">Professor</label>
+            <input type="text" [(ngModel)]="localClass.teacher" name="teacher" placeholder="Professor(a)" />
+            
+            <label for="year">Ano letivo</label>
+            <input type="number" [(ngModel)]="localClass.year" name="year" placeholder="Ano Letivo" />
+
+            <label for="room">Sala</label>
+            <input type="text" [(ngModel)]="localClass.room" name="room" placeholder="Sala" />
+
+            <label for="grade">Série</label>
+            <input type="text" [(ngModel)]="localClass.grade" name="grade" placeholder="Série" />
+
+            <label for="studentsCount">Número de Alunos</label>
+            <input type="text" [(ngModel)]="localClass.students" name="studentsCount" placeholder="Número de Alunos" />
+
+            <label for="schedule">Horário</label>
+            <input type="text" [(ngModel)]="localClass.schedule" name="schedule" placeholder="Horário" />
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">{{ isEdit ? 'Atualizar' : 'Cadastrar' }}</button>
+                <button type="button" class="btn-secondary" (click)="close()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --background: 220 100% 98%;
+  --foreground: 215 25% 27%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 215 25% 27%;
+
+  --primary: 214 84% 56%;
+  --primary-foreground: 0 0% 98%;
+
+  --secondary: 147 50% 47%;
+  --secondary-foreground: 0 0% 98%;
+
+  --muted: 220 13% 95%;
+  --muted-foreground: 215 16% 47%;
+
+  --accent: 214 100% 97%;
+  --accent-foreground: 214 84% 56%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 220 13% 91%;
+
+  /* Gradientes */
+  --gradient-primary: linear-gradient(135deg, hsl(214 84% 56%), hsl(207 90% 61%));
+  --gradient-secondary: linear-gradient(135deg, hsl(147 50% 47%), hsl(142 71% 45%));
+  --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(220 100% 99%) 100%);
+
+  /* Sombras */
+  --shadow-soft: 0 4px 6px -1px hsl(214 84% 56% / 0.1);
+  --shadow-card: 0 10px 25px -3px hsl(214 84% 56% / 0.1);
+  --shadow-float: 0 20px 40px -4px hsl(214 84% 56% / 0.15);
+
+  --radius: 0.5rem;
+}

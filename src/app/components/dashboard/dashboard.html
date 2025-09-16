@@ -1,0 +1,107 @@
+<div class="container m-4">
+  <div>
+    <h1>Dashboard</h1>
+    <p>Visão geral do sistema educacional</p>
+  </div>
+
+  <!-- Estatísticas -->
+  <div class="statistics-section">
+    <div class="card col-lg-3 col-md-6 col-sm-12">
+      <div class="card-title d-flex justify-content-between">
+        <h6 class="card-subtitle text-body-primary">Total de escolas</h6>
+        <i class="fa-solid fa-school"></i>
+      </div>
+      <div class="card-body p-0">
+        <h3 class="card-text">{{ totalSchools }}</h3>
+      </div>
+    </div>
+
+    <div class="card col-lg-3 col-md-6 col-sm-12">
+      <div class="card-title d-flex justify-content-between">
+        <h6 class="card-subtitle text-body-primary">Total de turmas</h6>
+        <i class="fa-solid fa-book-open-reader"></i>
+      </div>
+      <div class="card-body p-0">
+        <h3 class="card-text">{{ totalClasses }}</h3>
+      </div>
+    </div>
+
+    <div class="card col-lg-3 col-md-6 col-sm-12">
+      <div class="card-title d-flex justify-content-between">
+        <h6 class="card-subtitle text-body-primary">Total de alunos</h6>
+        <i class="fa-solid fa-user-group"></i>
+      </div>
+      <div class="card-body p-0">
+        <h3 class="card-text">{{ totalStudents }}</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Escolas recentes -->
+  <div class="recent-activities mt-4">
+    <div class="card shadow-sm border-0 p-3">
+      <div class="card-header bg-transparent border-0 d-flex align-items-center">
+        <i class="fa-solid fa-school text-primary me-2"></i>
+        <h4 class="mb-0">Escolas Recentes</h4>
+      </div>
+      <div class="card-body p-0">
+        <div class="list-group list-group-flush">
+          @for (school of recentSchools; track school.id) {
+            <div
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              <div>
+                <p class="mb-0 fw-semibold text-foreground">
+                  {{ school.name }}
+                </p>
+                <small class="text-muted">{{ school.students }} alunos</small>
+              </div>
+            </div>
+          }
+        </div>
+        <button
+          class="btn btn-outline-primary w-100 mt-3"
+          routerLink="/escolas"
+        >
+          Ver todas as escolas
+        </button>
+      </div>
+    </div>
+
+    <!-- Ações rápidas -->
+    <div class="card shadow-sm border-0">
+      <div
+        class="card-header bg-transparent border-0 d-flex mt-3 align-items-center"
+      >
+        <i class="fa-solid fa-bolt text-primary me-2"></i>
+        <h4 class="mb-0">Ações Rápidas</h4>
+      </div>
+      <div class="card-body">
+        <div class="d-grid gap-2">
+          <button
+            class="btn btn-outline-primary text-start"
+            (click)="openSchoolModal()"
+          >
+            <i class="fa-solid fa-school me-2"></i>
+            Cadastrar Nova Escola
+          </button>
+          <button
+            class="btn btn-outline-primary text-start"
+            (click)="openClassModal()"
+          >
+            <i class="fa-solid fa-book-open-reader me-2"></i>
+            Cadastrar Nova Turma
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modais -->
+@if (isSchoolModalOpen) {
+  <school-modal (onClose)="closeSchoolModal()"></school-modal>
+}
+@if (isClassModalOpen) {
+  <school-class-modal (onClose)="closeClassModal()"></school-class-modal>
+}

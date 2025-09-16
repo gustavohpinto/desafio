@@ -1,0 +1,75 @@
+<div class="layout d-flex flex-column flex-md-row">
+  <!-- Navbar Mobile -->
+  <nav class="mobile-nav d-md-none p-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="brand-mobile d-flex align-items-center gap-2">
+        <i class="fa-solid fa-graduation-cap logo"></i>
+        <h5 class="mb-0 fw-bold">Gestão</h5>
+      </div>
+      <button class="menu-btn" (click)="menuOpen = !menuOpen">☰</button>
+    </div>
+
+    <ul class="mobile-menu list-unstyled mt-3" [class.open]="menuOpen">
+      <li>
+        <a 
+          class="nav-link" 
+          [class.active]="activeSection === 'dashboard'" 
+          (click)="setActive('dashboard'); menuOpen=false">
+          <i class="fa-solid fa-house me-2"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a 
+          class="nav-link" 
+          [class.active]="activeSection === 'escolas'" 
+          (click)="setActive('escolas'); menuOpen=false">
+          <i class="fa-solid fa-school me-2"></i> Escolas
+        </a>
+      </li>
+      <li>
+        <a 
+          class="nav-link" 
+          [class.active]="activeSection === 'turmas'" 
+          (click)="setActive('turmas'); menuOpen=false">
+          <i class="fa-solid fa-user-group me-2"></i> Turmas
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Sidebar Desktop -->
+  <aside class="sidebar p-3 d-none d-md-flex flex-column">
+    <div class="brand mb-4">
+      <i class="fa-solid fa-graduation-cap logo"></i>
+      <div>
+        <h5 class="mb-0 fw-bold">Gestão</h5>
+        <small class="text-muted">Sistema Escolar</small>
+      </div>
+    </div>
+
+    <nav class="nav flex-column">
+      <a 
+        class="nav-link" 
+        [class.active]="activeSection === 'dashboard'" 
+        (click)="setActive('dashboard')">
+        <i class="fa-solid fa-house me-2"></i> Dashboard
+      </a>
+      <a 
+        class="nav-link" 
+        [class.active]="activeSection === 'escolas'" 
+        (click)="setActive('escolas')">
+        <i class="fa-solid fa-school me-2"></i> Escolas
+      </a>
+      <a 
+        class="nav-link" 
+        [class.active]="activeSection === 'turmas'" 
+        (click)="setActive('turmas')">
+        <i class="fa-solid fa-user-group me-2"></i> Turmas
+      </a>
+    </nav>
+  </aside>
+
+  <main class="flex-fill p-4 main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

@@ -1,0 +1,58 @@
+<div class="page-header">
+  <div>
+    <h2>Escolas</h2>
+    <p>Gerencie as escolas do sistema</p>
+  </div>
+  <button class="btn-primary" (click)="openSchoolModal()">+ Nova Escola</button>
+</div>
+
+<div class="search-bar">
+  <input type="text" placeholder="Buscar escolas..." [(ngModel)]="searchTerm">
+</div>
+
+<div class="card-grid">
+  @for (school of filteredSchools((schools$ | async) || []); track school.id) {
+    <div class="school-card">
+      <div class="card-header">
+        <h3>{{ school.name }}</h3>
+        <div class="actions">
+          <button class="edit" (click)="openSchoolModal(school)">
+            <i class="fa fa-pen"></i>
+          </button>
+          <button class="delete" (click)="deleteSchool(school.id)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+
+      <p class="director">{{ school.director }}</p>
+      <p><i class="fa fa-map-marker-alt"></i> {{ school.address }}</p>
+      <p><i class="fa fa-phone"></i> {{ school.phone }}</p>
+      <p><i class="fa fa-envelope"></i> {{ school.email }}</p>
+
+      <hr />
+
+      <div class="stats">
+        <div>
+          <i class="fa fa-users"></i>
+          <span><strong>{{ school.students }}</strong> alunos</span>
+        </div>
+        <div>
+          <i class="fa fa-book"></i>
+          <span><strong>{{ school.classesCount }}</strong> turmas</span>
+        </div>
+      </div>
+
+      <button class="btn-outline" (click)="goToSchoolClass(school.id)">Ver Turmas</button>
+    </div>
+  }
+</div>
+
+@if(isModalOpen){
+  <school-modal 
+    [school]="selectedSchool" 
+    [isEdit]="isEdit" 
+    (onSave)="saveSchool($event)" 
+    (onClose)="closeModal()">
+  </school-modal>
+}

@@ -1,0 +1,91 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    color: #111827;
+  }
+
+  p {
+    margin: 0.25rem 0 0;
+    color: #6b7280;
+    font-size: 0.95rem;
+  }
+}
+
+.statistics-section {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    .card {
+        background: var(--gradient-card);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        transition: all 0.3s ease;
+        animation: fadeIn 0.3s ease-in-out;
+
+        padding: 2rem;
+        border-radius: var(--radius);
+
+        .card-title {
+            background: transparent;
+            border-bottom: none;
+            justify-content: space-between;
+            align-items: center;
+
+            h6 {
+                color: var(--muted-foreground);
+                font-weight: 500;
+            }
+
+            i {
+                background-color: hsl(var(--primary) / 0.05);
+                color: hsl(var(--primary));
+                padding: 0.5rem;
+                border-radius: 50%;
+                width: auto;
+            }
+        }
+
+        .card-body {
+            padding: 0;
+
+            h3 {
+                font-weight: 600;
+                color: var(--foreground);
+            }
+        }
+
+        &:hover {
+            box-shadow: var(--shadow-float);
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(5px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+.recent-activities{
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+
+    .card{
+        width: 100%;
+    }
+}

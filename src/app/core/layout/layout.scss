@@ -1,0 +1,91 @@
+.layout {
+  height: 100vh;
+}
+
+/* ===== Sidebar Desktop ===== */
+.sidebar {
+  width: 250px;
+  background: hsl(var(--sidebar-background));
+  border-right: 1px solid hsl(var(--sidebar-border));
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid hsl(var(--sidebar-border));
+}
+
+.brand .logo {
+  font-size: 1.5rem;
+  color: hsl(var(--primary));
+  background: hsl(var(--primary) / 0.2);
+  padding: 0.5rem;
+  border-radius: 12px;
+  width: auto;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: var(--radius);
+  color: hsl(var(--sidebar-foreground));
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  background: hsl(var(--sidebar-accent));
+  color: hsl(var(--sidebar-primary));
+}
+
+.nav-link.active {
+  background: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+  font-weight: 600;
+}
+
+.main-content {
+  background: hsl(var(--primary) / 0.05);
+  overflow-y: auto;
+}
+
+/* ===== Mobile Navbar ===== */
+.mobile-nav {
+  background: hsl(var(--sidebar-background));
+  color: hsl(var(--sidebar-primary));
+}
+
+.mobile-nav .brand-mobile .logo {
+  font-size: 1.2rem;
+  color: hsl(var(--primary));
+  width: auto;
+}
+
+.mobile-nav .menu-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: hsl(var(--sidebar-primary));
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+  background: hsl(var(--sidebar-background));
+  border-top: 1px solid hsl(var(--sidebar-border));
+  padding: 0.5rem 0;
+}
+
+.mobile-menu.open {
+  display: block;
+}
+
+.mobile-menu .nav-link {
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+}
